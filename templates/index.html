@@ -14,50 +14,44 @@
     <h2>Get Recipes by Cuisine</h2>
     <form action="/cuisines" method="get">
         <label for="cuisine">Cuisine:</label>
-        <input type="text" id="cuisine" name="cuisine" placeholder="e.g., filipino">
+        <input type="text" id="cuisine" name="cuisine" placeholder="filipino">
         <button type="submit">Get Recipes</button>
     </form>
     <h2>Get Recipes by Category</h2>
     <form action="/categories" method="get">
         <label for="category">Category:</label>
-        <input type="text" id="category" name="category" placeholder="e.g., chicken">
+        <input type="text" id="category" name="category" placeholder="chicken">
         <button type="submit">Get Recipes</button>
     </form>
     <h2>Get Recipe Details</h2>
     <form action="/recipe" method="get">
         <label for="recipe_id">Recipe ID:</label>
-        <input type="text" id="recipe_id" name="recipe_id" placeholder="e.g., 10236">
+        <input type="text" id="recipe_id" name="recipe_id" placeholder="10236">
         <button type="submit">Get Recipe Details</button>
     </form>
     <h2>Search Recipes</h2>
     <form action="/search" method="get">
         <label for="phrase">Phrase:</label>
-        <input type="text" id="phrase" name="phrase" placeholder="e.g., adobo">
+        <input type="text" id="phrase" name="phrase" placeholder="adobo">
         <button type="submit">Search Recipes</button>
     </form>
     <h2>Search by Ingredients</h2>
     <form action="/search_ingredients" method="post">
         <label for="ingredients">Ingredients:</label>
-        <input type="text" id="ingredients" name="ingredients" placeholder="e.g., chicken, soy sauce, vinegar">
+        <input type="text" id="ingredients" name="ingredients" placeholder="chicken, soy sauce, vinegar">
         <button type="submit">Search</button>
     </form>
     <h2>Generate Meal Plan</h2>
     <form action="/generate_meal_plan" method="post">
         <label for="preference">Preference:</label>
-        <input type="text" id="preference" name="preference" placeholder="e.g., body builder">
+        <input type="text" id="preference" name="preference" placeholder="body builder">
         <button type="submit">Generate</button>
     </form>
     <h2>Create Shopping List</h2>
     <form action="/create_shopping_list" method="post">
         <label for="recipe_id">Recipe ID:</label>
-        <input type="text" id="recipe_id" name="recipe_id" placeholder="e.g., 10235">
+        <input type="text" id="recipe_id" name="recipe_id" placeholder="10235">
         <button type="submit">Create</button>
-    </form>
-    <h2>Send WhatsApp Message</h2>
-    <form action="/send_whatsapp" method="post">
-        <label for="text">Message:</label>
-        <input type="text" id="text" name="text" placeholder="e.g., hello whin, from rapidapi!">
-        <button type="submit">Send</button>
     </form>
 </body>
 </html>
