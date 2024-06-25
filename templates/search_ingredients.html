@@ -5,7 +5,9 @@
 <ul>
     {% for recipe in data %}
         <li>
-            <a class="recipe-link" href="/recipe/{{ recipe.id }}">{{ recipe.name }} ( ID:{{ recipe.id }})</a>
+                <a class="recipe-link" href="/recipe/{{ recipe.id }}">
+                    {{ recipe.name }} (ID:{{ recipe.id }})
+                </a>
         </li>
     {% endfor %}
 </ul>

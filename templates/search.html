@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 {% block title %}Search Results{% endblock %}
 {% block content %}
-<h1>Search Results</h1>
-<ul>
-    {% for recipe in data %}
-        <a class="recipe-link" href="/recipe/{{ recipe.id }}"><li>{{ recipe.name }} (ID:{{ recipe.id }})</li></a>
-    {% endfor %}
-</ul>
+    <h1>Search Results</h1>
+    <ul>
+        {% for recipe in data %}
+            <li>
+                <a class="recipe-link" href="/recipe/{{ recipe.id }}">
+                    {{ recipe.name }} (ID:{{ recipe.id }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

@@ -8,13 +8,13 @@
     <a href="/random"><button style="font-size: 18px;">Generate a random recipe</button></a>
 </div>
 <h3>Get Recipes by Cuisine</h3>
-<form action="/cuisines/search" method="get">
+<form action="/search/cuisines" method="get">
     <label for="cuisine">Cuisine:</label>
     <input type="text" id="cuisine" name="cuisine" placeholder="filipino">
     <button type="submit">Get recipes</button>
 </form>
 <h3>Get Recipes by Category</h3>
-<form action="/categories/search" method="get">
+<form action="/searh/categories" method="get">
     <label for="category">Category:</label>
     <input type="text" id="category" name="category" placeholder="chicken">
     <button type="submit">Get recipes</button>
@@ -32,7 +32,7 @@
     <button type="submit">Get recommendations based on this recipe</button>
 </form>
 <h3>Search Recipes</h3>
-<form action="/search" method="get">
+<form action="/phrase" method="get">
     <label for="phrase">Phrase:</label>
     <input type="text" id="phrase" name="phrase" placeholder="adobo">
     <button type="submit">Search</button>
