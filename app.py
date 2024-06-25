@@ -58,32 +58,37 @@ def get_random_recipe():
     return render_template('base_recipe.html', data=recipe['data'], id=recipe['id'])
 
 
-@app.route('/cuisines/<cuisine>', methods=['GET'])
-def get_recipes_by_cuisine(cuisine):
+@app.route('/cuisines/search', methods=['GET'])
+def search_recipes_by_cuisine():
+    cuisine = request.args.get('cuisine')
     response = get_api_response(f"/cuisines/{cuisine}")
-    recipes = response['cuisines']
-    return render_template('search.html', data=recipes['data'])
+    recipes = response['cuisines']['data']
+    return render_template('search.html', data=recipes)
 
 
-@app.route('/categories/<category>', methods=['GET'])
-def get_recipes_by_category(category):
+@app.route('/categories/search', methods=['GET'])
+def get_recipes_by_category():
+    category = request.args.get('category')
     response = get_api_response(f"/categories/{category}")
-    recipes = response['categories']
-    return render_template('search.html', data=recipes['data'])
+    recipes = response['categories']['data']
+    return render_template('search.html', data=recipes)
 
 
-@app.route('/recipe/<recipe_id>', methods=['GET'])
-def get_recipe_details(recipe_id):
+@app.route('/recipe', methods=['GET'])
+def get_recipe_details():
+    recipe_id = request.args.get('recipe_id')
     response = get_api_response(f"/details/{recipe_id}")
     recipe = response['recipe']
     return render_template('base_recipe.html', data=recipe['data'], id=recipe['id'])
 
 
-@app.route('/recommendations/<recipe_id>', methods=['GET'])
-def get_recommendations(recipe_id):
+@app.route('/recommendations', methods=['GET'])
+def get_recommendations():
+    recipe_id = request.args.get('recipe_id')
     response = get_api_response(f"/recommendations/{recipe_id}")
     recommendations = response['recommendations']
-    return render_template('recommendations.html', recommendations=recommendations['data'])
+    return render_template('recommendations.html', data=recommendations['data'],
+                           targetID=recommendations['targetID'])
 
 
 @app.route('/search', methods=['GET'])

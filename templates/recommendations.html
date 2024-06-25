@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Recommendations{% endblock %}
 {% block content %}
-<h1>Recommendations</h1>
+<h1>Recommendations for recipe with id: {{ targetID }}</h1>
 <ul>
-    {% for recommendation in recommendations %}
+    {% for recommendation in data %}
         <li>
             <strong>{{ recommendation.name }}</strong> (ID: {{ recommendation.id }})<br>
             Cuisine: {{ recommendation.Cuisine }}<br>
