@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cuisines</title>
-</head>
-<body>
-    <h1>Cuisines</h1>
-    <pre>{{ data }}</pre>
-    <a href="/">Back to Home</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Cuisines{% endblock %}
+{% block content %}
+<h1>Cuisines</h1>
+<ul>
+    {% for cuisine in cuisines %}
+        <li>{{ cuisine }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

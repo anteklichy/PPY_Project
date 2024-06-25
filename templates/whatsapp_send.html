@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Send via WhatsApp</title>
-</head>
-<body>
-    <h1>Send Shopping List or Recipe through WhatsApp</h1>
-    <form action="/send_whatsapp" method="post">
-        <label for="text">Message:</label>
-        <textarea id="text" name="text" rows="4" cols="50" placeholder="Enter your shopping list or recipe here"></textarea>
-        <button type="submit">Send via WhatsApp</button>
-    </form>
-    <a href="/">Back to Home</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Send WhatsApp Message{% endblock %}
+{% block content %}
+<h1>Send WhatsApp Message</h1>
+<form action="/send_whatsapp" method="post">
+    <textarea id="text" name="text" style="width: 80%; height: 200px; padding: 10px; margin: 10px 0;">{{ message_content }}</textarea>
+    <button type="submit">Send</button>
+</form>
+{% endblock %}

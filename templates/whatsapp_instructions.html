@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>WhatsApp Instructions</title>
-</head>
-<body>
-    <h1>Send Shopping List or Recipe through WhatsApp</h1>
-    <p>1. You will get a contact card with the active number of whin, and you need to add the card to the contacts on your phone.</p>
-    <p>2. Send a WhatsApp message from your phone (not from WhatsApp web) to the number you just added on #1. The content of the message must be the contact card you just added to your phone. Make sure you send whin's contact card, any other message will be ignored.</p>
-    <p>3. The bot will return a 5 digits code as a response to your WhatsApp. You have 30 minutes to POST the code here. If you run out of time, you can request as many codes as you need (just repeat #2).</p>
-    <form action="/whatsapp_instructions" method="post">
-        <label for="code">Enter the 5 digits code:</label>
-        <input type="text" id="code" name="code" placeholder="e.g., 12345">
-        <button type="submit">Submit Code</button>
-    </form>
-    <a href="https://wa.me/13022612667?text=whin" target="_blank">
-        <button style="font-size: 18px; padding: 10px;">Go to setup page</button>
-    </a>
-    <a href="/">Back to Home</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}WhatsApp Instructions{% endblock %}
+{% block content %}
+<h1>Send Shopping List or Recipe through WhatsApp</h1>
+<p>1. You will get a contact card with the active number of whin, and you need to add the card to the contacts on your phone.</p>
+<p>2. Send a WhatsApp message from your phone (not from WhatsApp web) to the number you just added on #1. The content of the message must be the contact card you just added to your phone. Make sure you send whin's contact card, any other message will be ignored.</p>
+<p>3. The bot will return a 5 digits code as a response to your WhatsApp. You have 30 minutes to POST the code here. If you run out of time, you can request as many codes as you need (just repeat #2).</p>
+<form action="/send_whatsapp_form" method="get">
+    <label for="code">Enter the 5 digits code:</label>
+    <input type="text" id="code" name="code" placeholder="e.g., 12345">
+    <input type="hidden" id="message_type" name="message_type" value="{{ message_type }}">
+    <input type="hidden" id="message_content" name="message_content" value="{{ message_content }}">
+    <button type="submit">Submit Code</button>
+</form>
+<a href="https://wa.me/13022612667?text=whin" target="_blank">
+    <button>Go to setup page</button>
+</a>
+{% endblock %}

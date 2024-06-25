@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Recommendations</title>
-</head>
-<body>
-    <h1>Recommendations</h1>
-    <pre>{{ data }}</pre>
-    <a href="/">Back to Home</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Recommendations{% endblock %}
+{% block content %}
+<h1>Recommendations</h1>
+<ul>
+    {% for recommendation in recommendations %}
+        <li>
+            <strong>{{ recommendation.name }}</strong> (ID: {{ recommendation.id }})<br>
+            Cuisine: {{ recommendation.Cuisine }}<br>
+            Category: {{ recommendation.Category }}<br>
+            Similarity: {{ recommendation.similarity }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

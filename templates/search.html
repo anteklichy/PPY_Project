@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Search Results</title>
-</head>
-<body>
-    <h1>Search Results</h1>
-    <pre>{{ data }}</pre>
-    <a href="/">Back to Home</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+<h1>Search Results</h1>
+<ul>
+    {% for recipe in data %}
+        <a class="recipe-link" href="/recipe/{{ recipe.id }}"><li>{{ recipe.name }} (ID:{{ recipe.id }})</li></a>
+    {% endfor %}
+</ul>
+{% endblock %}

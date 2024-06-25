@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<h1>{{ data.Name }}</h1>
+<p><strong>Category:</strong> {{ data.Category }}</p>
+<p><strong>Cuisine:</strong> {{ data.Cuisine }}</p>
+<p><strong>Ingredients:</strong></p>
+<ul>
+    {% for ingredient in data.Ingredients %}
+        <li>{{ ingredient }}</li>
+    {% endfor %}
+</ul>
+<p><strong>Instructions:</strong></p>
+<ol>
+    {% for step in data.Directions %}
+        <li>{{ step }}</li>
+    {% endfor %}
+</ol>
+<div class="button-container">
+    <a href="/whatsapp_instructions?message_type=recipe&message_content=Recipe: {{ data.Name }}\nCategory: {{ data.Category }}\nCuisine: {{ data.Cuisine }}\nIngredients: {{ data.Ingredients | join(', ') }}\nInstructions: {{ data.Directions | join('. ') }}">
+        <button>Send Recipe</button>
+    </a>
+    <a href="/whatsapp_instructions?message_type=shopping_list&message_content={{ data.Ingredients | join(', ') }}">
+        <button>Send shopping list</button>
+    </a>
+</div>
+{% endblock %}

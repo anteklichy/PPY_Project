@@ -1,63 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal Plan</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            background: #e9e9e9;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        li:hover {
-            background: #dcdcdc;
-        }
-        .back-link {
-            display: block;
-            margin-bottom: 20px;
-            color: #333;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <a href="/" class="back-link">Back to Main Menu</a>
-        <h1>Meal Plan</h1>
-        <ul>
-            <li><strong>Breakfast:</strong> {{ meal_plan.breakfast }}</li>
-            <li><strong>Lunch:</strong> {{ meal_plan.lunch }}</li>
-            <li><strong>Dinner:</strong> {{ meal_plan.dinner }}</li>
-            <li><strong>Snacks:</strong> {{ meal_plan.snacks }}</li>
-        </ul>
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Meal Plan{% endblock %}
+{% block content %}
+<h1>Meal Plan</h1>
+<ul>
+    <li><strong>Breakfast:</strong> {{ data.breakfast }}</li>
+    <li><strong>Lunch:</strong> {{ data.lunch }}</li>
+    <li><strong>Dinner:</strong> {{ data.dinner }}</li>
+    <li><strong>Snacks:</strong> {{ data.snacks }}</li>
+</ul>
+<div class="button-container">
+    <a href="/whatsapp_instructions?message_type=meal_plan&message_content=Breakfast: {{ data.breakfast }}\nLunch: {{ data.lunch }}\nDinner: {{ data.dinner }}\nSnacks: {{ data.snacks }}">
+        <button>Send by WhatsApp</button>
+    </a>
+</div>
+{% endblock %}

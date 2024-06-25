@@ -1,57 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All In One Recipe API</title>
-</head>
-<body>
-    <h1>All In One Recipe API</h1>
-    <div style="margin-bottom: 20px;">
-        <a href="/cuisines"><button style="font-size: 18px;">Show Cuisines</button></a>
-        <a href="/categories"><button style="font-size: 18px;">Show Categories</button></a>
-        <a href="/random"><button style="font-size: 18px;">Random Recipe</button></a>
-    </div>
-    <h2>Get Recipes by Cuisine</h2>
-    <form action="/cuisines" method="get">
-        <label for="cuisine">Cuisine:</label>
-        <input type="text" id="cuisine" name="cuisine" placeholder="filipino">
-        <button type="submit">Get Recipes</button>
-    </form>
-    <h2>Get Recipes by Category</h2>
-    <form action="/categories" method="get">
-        <label for="category">Category:</label>
-        <input type="text" id="category" name="category" placeholder="chicken">
-        <button type="submit">Get Recipes</button>
-    </form>
-    <h2>Get Recipe Details</h2>
-    <form action="/recipe" method="get">
-        <label for="recipe_id">Recipe ID:</label>
-        <input type="text" id="recipe_id" name="recipe_id" placeholder="10236">
-        <button type="submit">Get Recipe Details</button>
-    </form>
-    <h2>Search Recipes</h2>
-    <form action="/search" method="get">
-        <label for="phrase">Phrase:</label>
-        <input type="text" id="phrase" name="phrase" placeholder="adobo">
-        <button type="submit">Search Recipes</button>
-    </form>
-    <h2>Search by Ingredients</h2>
-    <form action="/search_ingredients" method="post">
-        <label for="ingredients">Ingredients:</label>
-        <input type="text" id="ingredients" name="ingredients" placeholder="chicken, soy sauce, vinegar">
-        <button type="submit">Search</button>
-    </form>
-    <h2>Generate Meal Plan</h2>
-    <form action="/generate_meal_plan" method="post">
-        <label for="preference">Preference:</label>
-        <input type="text" id="preference" name="preference" placeholder="body builder">
-        <button type="submit">Generate</button>
-    </form>
-    <h2>Create Shopping List</h2>
-    <form action="/create_shopping_list" method="post">
-        <label for="recipe_id">Recipe ID:</label>
-        <input type="text" id="recipe_id" name="recipe_id" placeholder="10235">
-        <button type="submit">Create</button>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>All In One Recipe API</h1>
+<div style="margin-bottom: 20px;">
+    <a href="/cuisines"><button style="font-size: 18px;">Show all cuisines</button></a>
+    <a href="/categories"><button style="font-size: 18px;">Show all categories</button></a>
+    <a href="/random"><button style="font-size: 18px;">Generate a random recipe</button></a>
+</div>
+<h3>Get Recipes by Cuisine</h3>
+<form action="/cuisines" method="get">
+    <label for="cuisine">Cuisine:</label>
+    <input type="text" id="cuisine" name="cuisine" placeholder="filipino">
+    <button type="submit">Get recipes</button>
+</form>
+<h3>Get Recipes by Category</h3>
+<form action="/categories" method="get">
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" placeholder="chicken">
+    <button type="submit">Get recipes</button>
+</form>
+<h3>Get Recipe Details</h3>
+<form action="/recipe" method="get">
+    <label for="recipe_id">Recipe ID:</label>
+    <input type="text" id="recipe_id" name="recipe_id" placeholder="10236">
+    <button type="submit">Get details</button>
+</form>
+<h3>Get Recommendations</h3>
+<form action="/recommendations" method="get">
+    <label for="recipe_id">Recipe ID:</label>
+    <input type="text" id="recipe_id" name="recipe_id" placeholder="10235">
+    <button type="submit">Get recommendations based on this recipe</button>
+</form>
+<h3>Search Recipes</h3>
+<form action="/search" method="get">
+    <label for="phrase">Phrase:</label>
+    <input type="text" id="phrase" name="phrase" placeholder="adobo">
+    <button type="submit">Search</button>
+</form>
+<h3>Search by Ingredients</h3>
+<form action="/search_ingredients" method="post">
+    <label for="ingredients">Ingredients:</label>
+    <input type="text" id="ingredients" name="ingredients" placeholder="chicken, soy sauce, vinegar">
+    <button type="submit">Search</button>
+</form>
+<h3>Generate Meal Plan</h3>
+<form action="/generate_meal_plan" method="post">
+    <label for="preference">Preference:</label>
+    <input type="text" id="preference" name="preference" placeholder="body builder">
+    <button type="submit">Generate</button>
+</form>
+<h3>Create Shopping List</h3>
+<form action="/create_shopping_list" method="post">
+    <label for="recipe_id">Recipe ID:</label>
+    <input type="text" id="recipe_id" name="recipe_id" placeholder="10235">
+    <button type="submit">Create</button>
+</form>
+{% endblock %}

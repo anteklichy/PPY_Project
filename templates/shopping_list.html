@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Shopping List</title>
-</head>
-<body>
-    <h1>Create Shopping List</h1>
-    <form action="/create_shopping_list" method="post">
-        <label for="recipe_id">Recipe ID:</label>
-        <input type="text" id="recipe_id" name="recipe_id" placeholder="e.g., 10235">
-        <button type="submit">Create</button>
-    </form>
-    {% if data %}
-    <h2>Shopping List:</h2>
-    <pre>{{ data }}</pre>
-    <div style="text-align: right; margin-bottom: 10px;">
-        <a href="/whatsapp_instructions">
-            <button style="font-size: 18px; padding: 10px;">Send shopping list or recipe through Whatsapp</button>
-        </a>
-    </div>
-    {% endif %}
-    <a href="/">Back to Home</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Create Shopping List{% endblock %}
+{% block content %}
+<h2>Shopping List:</h2>
+<ul>
+    {% for item in data %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+<div class="button-container">
+    <a href="/whatsapp_instructions?message_type=shopping_list&message_content=Shopping List:\n{{ data | join(', ') }}">
+        <button>Send shopping list through WhatsApp</button>
+    </a>
+</div>
+{% endif %}
+{% endblock %}
